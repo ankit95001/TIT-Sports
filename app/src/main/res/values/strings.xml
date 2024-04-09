@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">TIT SPORTS</string>
+    <string name="open_nav">Navigation Drawer</string>
+    <string name="close_nav">Close Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="upload_documents_for_volleyball">Upload Documents For Volleyball</string>
+    <string name="list_of_documents_that_pdf_must_have">List of documents that pdf must have :-</string>
+    <string name="_1_passport_size_photo">1. Passport size photo</string>
+    <string name="_2_10th_marksheet">2. 10th Marksheet</string>
+    <string name="enrollment_stu_id">Enrollment / STU ID</string>
+    <string name="name">Name</string>
+    <string name="_6_last_semester_marksheet">6. Last Semester Marksheet</string>
+    <string name="_5_id_card_admission_slip">5. ID Card / Admission slip</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="todo">TODO</string>
+    <string name="save">Save</string>
+    <string name="_3_12th_marksheet">3. 12th Marksheet</string>
+    <string name="_4_aadhar_card">4. Aadhar Card</string>
+    <string name="in_pdf_or_docs_format">in pdf or docs format</string>
+    <string name="line1">Elevate your coding journey with TITDeveloperCommunity, the thriving hub for aspiring and seasoned software developers at Technocrats Group. </string>
+    <string name="line2"> Join a passionate community of tech enthusiasts dedicated to fostering creativity, learning, and collaboration. Whether "you're " a beginner or a seasoned pro, TITDeveloperCommunity welcomes all levels of expertise.</string>
+    <string name="file_selected">File Selected!</string>
+    <string name="line5">Embark on a journey of innovation – TITDeveloperCommunity awaits you! </string>
+    <string name="line4"> Dive into the world of TITDeveloperCommunity and unlock a universe of possibilities. "Let's " code, create, and conquer together! </string>
+    <string name="line3"> Explore cutting-edge technologies, participate in hackathons, and engage in knowledge-sharing sessions with like-minded peers. Our community is your platform to expand your skills, build meaningful connections, and stay ahead in the dynamic world of software development.</string>
+    <string name="intro">Introducing "TITDeveloperCommunity" – Where Innovation Meets Collaboration!</string>
+
+</resources>
