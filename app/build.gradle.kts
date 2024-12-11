@@ -56,6 +56,8 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics:18.6.3")
     implementation("com.google.firebase:firebase-analytics:21.6.1")
     implementation("com.google.firebase:firebase-database:20.3.1")
+    implementation("androidx.activity:activity:1.9.2")
+    implementation("com.google.firebase:firebase-firestore:25.1.1")
 
 
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")

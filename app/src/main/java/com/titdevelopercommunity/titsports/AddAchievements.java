@@ -45,11 +45,7 @@ public class AddAchievements extends Fragment {
             Intent volley = new Intent(v.getContext(), UploadCertificate.class);
             activityResultLauncher.launch(volley);
         });
-        photograph = v.findViewById(R.id.add_highlights);
-        photograph.setOnClickListener(view -> {
-            Intent volley = new Intent(v.getContext(), Upload_Highlights.class);
-            activityResultLauncher.launch(volley);
-        });
+
 
 
         return v;
