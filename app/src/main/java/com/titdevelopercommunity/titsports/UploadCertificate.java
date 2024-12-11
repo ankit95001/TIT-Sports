@@ -106,8 +106,8 @@ public class UploadCertificate extends AppCompatActivity {
         String Des = description.getText().toString();
         CertificateDataClass data = new CertificateDataClass(Phone, Name, Enroll, imgURL, Des);
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Certificates");
-        databaseReference.child(autoCompleteTextView.getText().toString())
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Certificates").child(autoCompleteTextView.getText().toString());
+        databaseReference.child(Objects.requireNonNull(databaseReference.push().getKey()))
                 .setValue(data).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(UploadCertificate.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();

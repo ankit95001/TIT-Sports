@@ -163,6 +163,39 @@
                     android:textSize="16dp"
                     android:background="@drawable/red_border"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/red_border"
+                    android:fontFamily="@font/aladin"
+                    android:padding="15dp"
+                    android:text="Sport :"
+                    android:textAlignment="center"
+                    android:textColor="@color/tit"
+                    android:textSize="16dp"
+                    tools:ignore="TextSizeCheck" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sport"
+                    android:inputType="text"
+                    android:fontFamily="@font/aladin"
+                    android:layout_marginEnd="5dp"
+                    android:padding="15dp"
+                    android:textColor="@color/tit"
+                    android:gravity="start"
+                    android:id="@+id/profile_sport"
+                    android:textSize="16dp"
+                    android:background="@drawable/red_border"/>
+            </LinearLayout>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

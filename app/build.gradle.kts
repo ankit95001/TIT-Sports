@@ -14,8 +14,8 @@ android {
         applicationId = "com.titdevelopercommunity.titsports"
         minSdk = 26
         targetSdk = 34
-        versionCode = 3
-        versionName = "3.0"
+        versionCode = 5
+        versionName = "4.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -65,6 +65,9 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.activity:activity-ktx:1.8.2")
+    implementation ("com.google.android.gms:play-services-base:18.0.1")
+//    implementation ("com.google.android.play:core:1.10.3")
+
 
 
 

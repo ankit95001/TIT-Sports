@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +23,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
+    String[] items = {"Volleyball", "Badminton", "Cricket", "Football", "Kabaddi", "Handball", "Athletics", "Chess", "Basketball", "Swimming", "Taekwondo", "Table Tennis", "Karate", "Kho-Kho", "Weight/power Lifting", "Yoga", "Other"};
     TextInputEditText edtEmail,edtPassword,edtName,edtEnrollment,edtPhone;
     TextView txt;
     Button btn_register;
     FirebaseAuth mAuth;
-    String email,password,name,enrollment,phone;
+    AutoCompleteTextView autoCompleteTextView;
+    ArrayAdapter<String> adapterItems;
+    String email,password,name,enrollment,phone,sport;
     @Override
     public void onStart() {
         super.onStart();
@@ -51,6 +56,11 @@ public class RegisterActivity extends AppCompatActivity {
         txt=findViewById(R.id.register_login_button);
         edtPhone=findViewById(R.id.register_phone);
 
+        autoCompleteTextView = findViewById(R.id.sport_autocomplete_txt);
+
+        adapterItems = new ArrayAdapter<>(this, R.layout.list_item, items);
+        autoCompleteTextView.setAdapter(adapterItems);
+
         txt.setOnClickListener(view -> {
             Intent intent=new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
@@ -71,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
             name=String.valueOf(edtName.getText());
             enrollment=String.valueOf(edtEnrollment.getText());
             phone=String.valueOf(edtPhone.getText());
+            sport=String.valueOf(autoCompleteTextView.getText());
 
             //Validation of mobile number
             String mobileRgx="[6-9][0-9]{9}";
@@ -127,17 +138,23 @@ public class RegisterActivity extends AppCompatActivity {
                 dialog.dismiss();
                 return;
             }
+            if(sport.equals("")){
+                autoCompleteTextView.setError("Enter valid Phone number");
+                autoCompleteTextView.requestFocus();
+                dialog.dismiss();
+                return;
+            }
+
 
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            dialog.dismiss();
                             FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                            ReadWriteUserDetails details = new ReadWriteUserDetails(email,password,name,enrollment,phone);
+                            ReadWriteUserDetails details = new ReadWriteUserDetails(email,password,name,enrollment,phone,sport);
                             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User Details");
 
 
-
+                            dialog.dismiss();
                             assert firebaseUser != null;
                             reference.child(firebaseUser.getUid()).setValue(details).addOnCompleteListener(task1 -> {
                                 Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();

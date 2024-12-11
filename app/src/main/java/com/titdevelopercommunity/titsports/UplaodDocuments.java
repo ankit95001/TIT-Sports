@@ -37,13 +37,13 @@ public class UplaodDocuments extends Fragment {
         interCollege=v.findViewById(R.id.inter_registration);
 
         nodal.setOnClickListener(view -> {
-            Toast.makeText(getContext(), "This action is not allowed.", Toast.LENGTH_SHORT).show();
-//            Intent iNodal = new Intent(v.getContext(), NodalRegistration.class);
-//            activityResultLauncher.launch(iNodal);
+            Intent iNodal = new Intent(v.getContext(), NodalRegistration.class);
+            activityResultLauncher.launch(iNodal);
         });
         interCollege.setOnClickListener(view -> {
-            Intent iNodal = new Intent(v.getContext(), InterCollegeRegistration.class);
-            activityResultLauncher.launch(iNodal);
+            Toast.makeText(getContext(), "This action is not allowed.", Toast.LENGTH_SHORT).show();
+//            Intent iNodal = new Intent(v.getContext(), InterCollegeRegistration.class);
+//            activityResultLauncher.launch(iNodal);
         });
 
 

@@ -32,7 +32,7 @@ public class Setting extends Fragment {
         // Required empty public constructor
     }
 
-    TextView name,email,phone,enrollment;
+    TextView name,email,phone,enrollment,sport;
     Button update;
     FirebaseAuth authProfile;
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
@@ -51,6 +51,7 @@ public class Setting extends Fragment {
         phone=v.findViewById(R.id.profile_phone);
         enrollment=v.findViewById(R.id.profile_enrollment);
         update=v.findViewById(R.id.profile_update);
+        sport=v.findViewById(R.id.profile_sport);
 
 
         update.setOnClickListener(view -> {
@@ -82,6 +83,7 @@ public class Setting extends Fragment {
                         name.setText(details.getName());
                         phone.setText(details.getPhone());
                         enrollment.setText(details.getEnrollment());
+                        sport.setText(details.getSport());
                         dialog.dismiss();
                         }
                     }

@@ -66,10 +66,10 @@
                    <com.makeramen.roundedimageview.RoundedImageView
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
-                       android:src="@drawable/sharmasir"
+                       android:layout_margin="10dp"
                        android:adjustViewBounds="true"
-                       app:riv_corner_radius="8dp"
-                       android:layout_margin="10dp"/>
+                       android:src="@drawable/sharmasir"
+                       app:riv_corner_radius="8dp" />
                </LinearLayout>
            </androidx.cardview.widget.CardView>
 

@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class UpdateProfile extends AppCompatActivity {
-    TextView name,email,phone,enrollment;
+    TextView name,email,phone,enrollment,sport;
     Button update;
     FirebaseAuth authProfile;
     String userID,emailId,password;
@@ -33,6 +33,7 @@ public class UpdateProfile extends AppCompatActivity {
         phone=findViewById(R.id.update_phone);
         enrollment=findViewById(R.id.update_enrollment);
         update=findViewById(R.id.update_update);
+        sport=findViewById(R.id.update_sport);
 
         authProfile=FirebaseAuth.getInstance();
         FirebaseUser firebaseUser=authProfile.getCurrentUser();
@@ -58,6 +59,7 @@ public class UpdateProfile extends AppCompatActivity {
                         name.setText(details.getName());
                         phone.setText(details.getPhone());
                         enrollment.setText(details.getEnrollment());
+                        sport.setText(details.getSport());
                         emailId=firebaseUser.getEmail();
                         password= details.getPassword();
                         dialog.dismiss();
@@ -78,7 +80,7 @@ public class UpdateProfile extends AppCompatActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
             DatabaseReference reference =FirebaseDatabase.getInstance().getReference("User Details");
-            ReadWriteUserDetails details = new ReadWriteUserDetails(emailId,password,name.getText().toString(),enrollment.getText().toString(),phone.getText().toString());
+            ReadWriteUserDetails details = new ReadWriteUserDetails(emailId,password,name.getText().toString(),enrollment.getText().toString(),phone.getText().toString(),sport.getText().toString());
             reference.child(userID).setValue(details).addOnCompleteListener(task -> {
                 Toast.makeText(UpdateProfile.this, "Updated", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
