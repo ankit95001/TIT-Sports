@@ -23,6 +23,7 @@ public class SportsHighlight extends Fragment {
 
         Button gold_cup_highlights=v.findViewById(R.id.gold_cup_highlights);
         Button nodalHighlights = v.findViewById(R.id.nodal_highlights);
+        Button poster = v.findViewById(R.id.poster_highlights);
 
 
         gold_cup_highlights.setOnClickListener(view -> {
@@ -32,6 +33,10 @@ public class SportsHighlight extends Fragment {
 
         nodalHighlights.setOnClickListener(view -> {
             Intent intent = new Intent(v.getContext(), NodalHighlights.class);
+            startActivity(intent);
+        });
+        poster.setOnClickListener(view -> {
+            Intent intent = new Intent(v.getContext(), Poster.class);
             startActivity(intent);
         });
 

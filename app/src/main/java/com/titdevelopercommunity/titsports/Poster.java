@@ -10,9 +10,6 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,10 +25,10 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NodalHighlights extends AppCompatActivity {
-    private static final String CACHE_PREFS = "NodalCache";
-    private static final String CACHE_KEY = "CachedNodalPhotos";
-    private static final String TIMESTAMP_KEY = "CacheNodalTimestamp";
+public class Poster extends AppCompatActivity {
+    private static final String CACHE_PREFS = "PosterCache";
+    private static final String CACHE_KEY = "CachedPosterPhotos";
+    private static final String TIMESTAMP_KEY = "CachePosterTimestamp";
     private static final long CACHE_EXPIRY = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
     RecyclerView galleryRecyclerView;
@@ -42,12 +39,12 @@ public class NodalHighlights extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nodal_highlights);
+        setContentView(R.layout.activity_poster);
 
-        galleryRecyclerView = findViewById(R.id.imageListRecyclerNodal);
+        galleryRecyclerView = findViewById(R.id.imageListRecyclerPoster);
 
         // Initialize Firebase Realtime Database Reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("Highlights").child("NodalHighlights");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Highlights").child("Poster");
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(CACHE_PREFS, Context.MODE_PRIVATE);
@@ -107,7 +104,7 @@ public class NodalHighlights extends AppCompatActivity {
                 }
 
                 if (photoList.isEmpty()) {
-                    Toast.makeText(NodalHighlights.this, "No photos found.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Poster.this, "No photos found.", Toast.LENGTH_SHORT).show();
                 } else {
                     cachePhotos(photoList); // Cache the photos
                     updateGalleryRecyclerView(photoList);
@@ -117,7 +114,7 @@ public class NodalHighlights extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("FETCH_ERROR", "Failed to fetch photos: " + error.getMessage());
-                Toast.makeText(NodalHighlights.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Poster.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
